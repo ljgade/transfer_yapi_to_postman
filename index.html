@@ -26,6 +26,10 @@
         .table>tbody>tr>td {
             vertical-align: middle;
         }
+
+        #footer {
+            margin-bottom: 0;
+        }
     </style>
 </head>
 <body>
@@ -46,7 +50,7 @@
                     <td><input type="file" class="form-control" name="uploadFile"/></td>
                 </tr>
                 <tr>
-                    <td>Postman's ApiKey</td>
+                    <td>Postman's API Key</td>
                     <td>Optional</td>
                     <td><input type="text" class="form-control" name="apiKey" placeholder="Postman's apiKey" value="" /></td>
                 </tr>
@@ -54,7 +58,7 @@
                     <td></td>
                     <td></td>
                     <td>
-                        <input type="submit" class="btn btn-primary btn-default" id="uploadBtn"/>
+                        <input type="submit" class="btn btn-primary btn-default" value="submit" id="uploadBtn"/>
                     </td>
                 </tr>
             </table>
@@ -62,7 +66,7 @@
     </div>
     <div class="panel-footer">
         <!--        <p>If you wanna import postman directly, you may input the postman's apiKey. </p>-->
-        <p>Haven't get an apiKey yet ? <a href="https://go.postman.co/integrations/services/pm_pro_api" target="_blank">Click here</a> to generate one.</p>
+        <p id="footer">Haven't get an API Key yet? <a href="https://go.postman.co/integrations/services/pm_pro_api" target="_blank">Click here</a> to generate one.</p>
     </div>
 </div>
 </body>
