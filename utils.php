@@ -201,4 +201,16 @@ function parseHeaders(array $headers): array
     return $result;
 }
 
+function curlPostFile($url, array $headers, $post_data) {
+    $request = curl_init($url);
+    curl_setopt($request, CURLOPT_CUSTOMREQUEST, 'POST');
+    curl_setopt($request, CURLOPT_POSTFIELDS, $post_data);
+    curl_setopt($request, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($request, CURLOPT_HTTPHEADER, $headers);
+    $response = curl_exec($request);
+    $result = json_decode($response, true);
+    curl_close($request);
+    return $result;
+}
+
 

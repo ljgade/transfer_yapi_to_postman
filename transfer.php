@@ -12,4 +12,20 @@ if (empty($uploadFile)) {
 $data = file_get_contents($uploadFile['tmp_name']);
 header('Content-Type: application/json');
 $collection_name = str_replace('.' . $ext, '', $uploadFile['name']);
-exit(json_encode(parseCollection(json_decode($data, true), $collection_name), JSON_UNESCAPED_UNICODE));
+$collection_data = parseCollection(json_decode($data, true), $collection_name);
+$api_key = $_POST['apiKey'] ?? '';
+if (!empty($api_key)) {
+    $url = 'https://api.getpostman.com/collections';
+    $headers = [
+        'x-api-key: '.$api_key,
+        'Content-Type: application/json'
+    ];
+    $post_data = [
+        'collection' => $collection_data
+    ];
+    $post_data = json_encode($post_data);
+    $result = curlPostFile($url, $headers, $post_data);
+    exit(json_encode($result, JSON_UNESCAPED_UNICODE));
+} else {
+    exit($collection_data);
+}

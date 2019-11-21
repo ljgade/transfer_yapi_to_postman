@@ -6,33 +6,64 @@
     <link rel="stylesheet" type="text/css" href="bootstrap.min.css"/>
     <style type="text/css">
         html {
-            font-family: Arial;
+            font-family: Arial,serif;
         }
 
-        form {
+        .panel {
             margin: 50px auto;
-            width: 400px;
+            width: 700px;
         }
 
-        input {
-            width: 300px;
-            padding: 4px;
+        .table {
+            margin-bottom: 0;
         }
 
-        #uploadBtn {
-            margin-top: -3px;
-            margin-left: 5px;
-            width: 60px;
-            height: 30px;
-            font-weight: bold;
-            font-size: 12px;
+        tr,th {
+            line-height: 50px;
+            text-align: center;
+        }
+
+        .table>tbody>tr>td {
+            vertical-align: middle;
         }
     </style>
 </head>
 <body>
-<form enctype="multipart/form-data" method="post" action="transfer.php">
-    <input type="file" name="uploadFile"/>
-    <input type="submit" id="uploadBtn"/>
-</form>
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading"><Strong>Transfer YApi doc to Postman</Strong></div>
+    <div class="panel-body">
+        <form enctype="multipart/form-data" method="post" action="transfer.php">
+            <table class="table table-bordered">
+                <tr>
+                    <th>Option</th>
+                    <th>Required</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>YApi Doc File</td>
+                    <td>Required</td>
+                    <td><input type="file" class="form-control" name="uploadFile"/></td>
+                </tr>
+                <tr>
+                    <td>Postman's ApiKey</td>
+                    <td>Optional</td>
+                    <td><input type="text" class="form-control" name="apiKey" placeholder="Postman's apiKey" value="" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <input type="submit" class="btn btn-primary btn-default" id="uploadBtn"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div class="panel-footer">
+        <!--        <p>If you wanna import postman directly, you may input the postman's apiKey. </p>-->
+        <p>Haven't get an apiKey yet ? <a href="https://go.postman.co/integrations/services/pm_pro_api" target="_blank">Click here</a> to generate one.</p>
+    </div>
+</div>
 </body>
 </html>
