@@ -27,5 +27,5 @@ if (!empty($api_key)) {
     $result = curlPostFile($url, $headers, $post_data);
     exit(json_encode($result, JSON_UNESCAPED_UNICODE));
 } else {
-    exit($collection_data);
+    exit(json_encode($collection_data));
 }

@@ -1,13 +1,5 @@
 <?php
 
-use function call_user_func_array;
-use function dirname;
-use function file_exists;
-use function file_get_contents;
-use function is_callable;
-use function json_decode;
-use function substr;
-
 final class Faker
 {
     /**
